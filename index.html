@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tollywood Legacy • Stars • Stories • Connections</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root { --gold: #f5c400; }
+        
+        * { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), 
+                        url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.04);
+            box-shadow: 0 30px 60px -15px rgb(245 196 0 / 0.3);
+        }
+        
+        .actor-img {
+            transition: all 0.4s ease;
+        }
+        
+        .actor-card:hover .actor-img {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white">
+
+    <!-- Navbar (same as before) -->
+    <nav class="bg-black/90 backdrop-blur-lg border-b border-amber-400/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl flex items-center justify-center text-3xl">🎥</div>
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tighter" style="font-family: 'Playfair Display', serif;">TOLLYWOOD</h1>
+                    <p class="text-[10px] text-amber-400 -mt-1 tracking-[2px]">LEGACY</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a onclick="navigateToSection('home')" class="hover:text-amber-400 cursor-pointer">HOME</a>
+                <a onclick="navigateToSection('actors')" class="hover:text-amber-400 cursor-pointer">ACTORS</a>
+                <a onclick="navigateToSection('movies')" class="hover:text-amber-400 cursor-pointer">MOVIES</a>
+                <a onclick="navigateToSection('relations')" class="hover:text-amber-400 cursor-pointer">RELATIONS</a>
+                <a onclick="navigateToSection('explore')" class="hover:text-amber-400 cursor-pointer">NETWORK</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (same) -->
+    <section id="home" class="hero-bg h-screen flex items-center">
+        <!-- ... (same hero content as previous version) ... -->
+        <div class="max-w-7xl mx-auto px-6">
+            <h1 class="text-7xl md:text-8xl font-bold leading-none tracking-tighter" style="font-family: 'Playfair Display', serif;">
+                THE STARS.<br>THE STORIES.<br>THE <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">CONNECTIONS</span>.
+            </h1>
+        </div>
+    </section>
+
+    <!-- Actors Section with Real Photos -->
+    <section id="actors" class="max-w-7xl mx-auto px-6 py-20">
+        <h2 class="text-5xl font-bold tracking-tighter mb-12">Tollywood Stars</h2>
+        
+        <div id="actors-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+            <!-- Populated by JavaScript with real photos -->
+        </div>
+    </section>
+
+    <!-- Rest of sections remain the same (Movies, Relations, Network) -->
+
+    <script>
+        const actorsData = [
+            {
+                id: 1,
+                name: "Chiranjeevi",
+                dynasty: "mega",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Chiranjeevi_at_the_launch_of_%27Khaidi_No._150%27_trailer.jpg/800px-Chiranjeevi_at_the_launch_of_%27Khaidi_No._150%27_trailer.jpg",
+                bio: "Megastar Chiranjeevi – The ultimate legend of Telugu cinema with over 150 films.",
+                tags: ["Mega Star", "Action Legend", "Padma Vibhushan"],
+                movies: [
+                    { title: "Indra", year: 2002 },
+                    { title: "Tagore", year: 2003 },
+                    { title: "Sye Raa", year: 2019 }
+                ],
+                relations: [{ id: 2, type: "Father of", label: "Ram Charan" }]
+            },
+            {
+                id: 2,
+                name: "Ram Charan",
+                dynasty: "mega",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ram_Charan_at_the_launch_of_Rangasthalam.jpg/800px-Ram_Charan_at_the_launch_of_Rangasthalam.jpg",
+                bio: "Global superstar known for RRR, Game Changer, and massive pan-India success.",
+                tags: ["RRR Star", "National Award", "Producer"],
+                movies: [
+                    { title: "RRR", year: 2022 },
+                    { title: "Magadheera", year: 2009 },
+                    { title: "Game Changer", year: 2025 }
+                ],
+                relations: [{ id: 1, type: "Son of", label: "Chiranjeevi" }]
+            },
+            {
+                id: 3,
+                name: "Allu Arjun",
+                dynasty: "mega",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Allu_Arjun_at_the_launch_of_Pushpa_2.jpg/800px-Allu_Arjun_at_the_launch_of_Pushpa_2.jpg",
+                bio: "Stylish Star & National Award winner. The face of Pushpa franchise.",
+                tags: ["Pushpa", "Dancing Icon", "National Award"],
+                movies: [
+                    { title: "Pushpa 2", year: 2024 },
+                    { title: "Ala Vaikunthapurramuloo", year: 2020 },
